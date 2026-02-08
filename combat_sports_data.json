@@ -1,0 +1,22 @@
+{
+  "workouts": [
+    {
+      "type": "Judo",
+      "date": "2026-02-07",
+      "duration": 60,
+      "intensity": "Moderate",
+      "weight": 65.0,
+      "notes": "",
+      "timestamp": "2026-02-07T15:09:36.818702"
+    }
+  ],
+  "competitions": [
+    {
+      "name": "2026 Judo BC Provincial Championships",
+      "date": "2026-02-08",
+      "weight_class": "66 kg",
+      "current_weight": 66.0,
+      "created": "2026-02-07T15:25:14.563253"
+    }
+  ]
+}
