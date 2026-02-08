@@ -1,0 +1,36 @@
+# Ruff configuration file
+# https://docs.astral.sh/ruff/
+
+[format]
+# Use tabs instead of spaces for indentation
+indent-style = "tab"
+
+# Use double quotes for strings
+quote-style = "double"
+
+[lint]
+# Enable recommended rules
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+]
+
+# Ignore specific rules if needed
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+]
+
+# Allow unused variables when underscore-prefixed
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[lint.isort]
+# Keep imports organized
+known-first-party = ["combat_sports_tracker"]
+
+[tool.ruff.lint]
+ignore = ["W191", "E101"]
