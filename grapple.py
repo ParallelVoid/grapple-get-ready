@@ -93,6 +93,7 @@ def create_training_frequency_chart():
 	colors = {
 		"Judo": "#FF6B6B",
 		"Sambo": "#4ECDC4",
+		"Wrestling": "#F70046",
 		"BJJ/Grappling": "#45B7D1",
 		"MMA": "#FFA07A",
 		"Strength & Conditioning": "#98D8C8",
@@ -369,7 +370,7 @@ def create_workout_log():
 
 		with ui.card().classes("w-full"):
 			workout_type = ui.select(
-				["Judo", "Sambo", "BJJ/Grappling", "MMA", "Strength & Conditioning", "Cardio", "Technique Drilling"],
+				["Judo", "Sambo", "Wrestling", "BJJ/Grappling", "MMA", "Strength & Conditioning", "Cardio", "Technique Drilling"],
 				label="Workout Type",
 				value="Judo",
 			).classes("w-full")
@@ -667,8 +668,9 @@ def create_workout_history():
 						with ui.row().classes("w-full items-center gap-4"):
 							icon_map = {
 								"Judo": "🥋",
-								"Sambo": "🇷🇺",
-								"BJJ/Grappling": "🤼",
+								"Sambo": "🦅",
+								"Wrestling": "🤼",
+								"BJJ/Grappling": "🐙",
 								"MMA": "🥊",
 								"Strength & Conditioning": "💪",
 								"Cardio": "🏃",
@@ -685,6 +687,44 @@ def create_workout_history():
 									ui.label(workout["notes"]).classes("text-sm text-gray-700 mt-1")
 
 		workout_list_container()
+
+
+def get_most_recent_weight():
+	"""Return the most recent weight logged, or 0 if none."""
+	weight_entries = [
+		w for w in tracker.workouts
+		if w.get("weight") and w["weight"] > 0
+	]
+	if not weight_entries:
+		return 0
+	latest = max(weight_entries, key=lambda w: w.get("date", ""))
+	return latest["weight"]
+
+
+def log_premade_workout(workout):
+	"""Log a premade workout using the workout type, duration estimate, and most recent weight."""
+	recent_weight = get_most_recent_weight()
+	# Map premade workout type to tracker workout types
+	type_map = {
+		"Judo Technique Practice": "Judo",
+		"Strength and Conditioning": "Strength & Conditioning",
+		"BJJ/Grappling": "BJJ/Grappling",
+		"MMA": "MMA",
+		"Cardio": "Cardio",
+	}
+	workout_type = type_map.get(workout.get("type", ""), workout.get("type", "Judo"))
+	duration = workout.get("duration_minutes", 60)
+
+	workout_data = {
+		"type": workout_type,
+		"date": datetime.now().strftime("%Y-%m-%d"),
+		"duration": duration,
+		"intensity": "Moderate",
+		"weight": recent_weight,
+		"notes": f"Premade workout: {workout['name']}",
+		"timestamp": datetime.now().isoformat(),
+	}
+	tracker.add_workout(workout_data)
 
 
 def create_premade_workouts():
@@ -711,7 +751,7 @@ def create_premade_workouts():
 		ui.label("Select a workout to view details and exercises.").classes("text-sm text-gray-500 -mt-2 mb-2")
 
 		if not premade_workouts:
-			ui.label("No premade workouts found. Make sure premade_workouts.json is present.").classes("text-gray-500 italic")
+			ui.label("No premade workouts found. Add JSON files to the workouts/ folder.").classes("text-gray-500 italic")
 			return
 
 		with ui.row().classes("w-full flex-wrap gap-4"):
@@ -719,9 +759,9 @@ def create_premade_workouts():
 				wtype = workout.get("type", "")
 				icon = type_icons.get(wtype, "🏋️")
 				gradient = type_colors.get(wtype, "from-gray-500 to-gray-700")
+				duration = workout.get("duration_minutes", None)
 
-				with ui.card().classes(f"w-72 cursor-pointer hover:shadow-xl transition-all duration-200 overflow-hidden"):
-					# Colored header banner
+				with ui.card().classes("w-72 hover:shadow-xl transition-all duration-200 overflow-hidden"):
 					with ui.element("div").classes(f"bg-gradient-to-r {gradient} p-4 text-white w-full"):
 						ui.label(icon).classes("text-4xl mb-1")
 						ui.label(workout["name"]).classes("text-base font-bold leading-tight")
@@ -730,72 +770,97 @@ def create_premade_workouts():
 					with ui.element("div").classes("p-4"):
 						ui.label(f"👤 Inspired by: {workout.get('inspired_by', 'N/A')}").classes("text-sm text-gray-600")
 						ui.label(f"🏋️ {len(workout.get('exercises', []))} exercises").classes("text-sm text-gray-600 mt-1")
+						if duration:
+							ui.label(f"⏱ ~{duration} min").classes("text-sm text-gray-600 mt-1")
 
-						def open_workout_dialog(w=workout):
-							with ui.dialog() as dlg, ui.card().classes("w-full max-w-2xl max-h-screen overflow-y-auto"):
-								# Header
+						with ui.row().classes("w-full gap-2 mt-3"):
+							def open_workout_dialog(w=workout):
 								wt = w.get("type", "")
 								grad = type_colors.get(wt, "from-gray-500 to-gray-700")
 								ic = type_icons.get(wt, "🏋️")
+								dur = w.get("duration_minutes", None)
 
-								with ui.element("div").classes(f"bg-gradient-to-r {grad} p-6 text-white -mx-6 -mt-6 mb-4"):
-									ui.label(ic).classes("text-5xl mb-2")
-									ui.label(w["name"]).classes("text-2xl font-bold")
-									ui.label(wt).classes("text-sm opacity-80 mt-1")
-									ui.label(f"Inspired by {w.get('inspired_by', '')}").classes("text-sm opacity-70")
+								with ui.dialog() as dlg, ui.card().classes("w-full max-w-2xl max-h-screen overflow-y-auto"):
+									with ui.element("div").classes(f"bg-gradient-to-r {grad} p-6 text-white -mx-6 -mt-6 mb-4"):
+										ui.label(ic).classes("text-5xl mb-2")
+										ui.label(w["name"]).classes("text-2xl font-bold")
+										ui.label(wt).classes("text-sm opacity-80 mt-1")
+										ui.label(f"Inspired by {w.get('inspired_by', '')}").classes("text-sm opacity-70")
+										if dur:
+											ui.label(f"⏱ ~{dur} minutes").classes("text-sm opacity-80 mt-1")
 
-								# Coach's Notes
-								if w.get("notes"):
-									with ui.card().classes("w-full bg-amber-50 border border-amber-200 mb-4"):
-										with ui.row().classes("items-center gap-2 mb-2"):
-											ui.label("📋").classes("text-xl")
-											ui.label("Coach's Notes").classes("text-base font-bold text-amber-800")
-										for note in w["notes"]:
-											with ui.row().classes("items-start gap-2 mb-1"):
-												ui.label("•").classes("text-amber-600 font-bold mt-0.5")
-												ui.label(note).classes("text-sm text-amber-900 flex-1")
+									# Log button at top of dialog
+									recent_weight = get_most_recent_weight()
+									weight_note = f"using your most recent weight ({recent_weight} kg)" if recent_weight else "no weight on record — will log as 0 kg"
 
-								# Exercises
-								ui.label("Exercises").classes("text-lg font-bold text-gray-800 mb-3")
+									with ui.card().classes("w-full bg-green-50 border border-green-200 mb-4"):
+										with ui.row().classes("items-center justify-between gap-2"):
+											with ui.column().classes("flex-1"):
+												ui.label("Ready to train?").classes("text-sm font-bold text-green-800")
+												ui.label(f"Will log as {dur or 60} min · {weight_note}").classes("text-xs text-green-700")
 
-								for ex in w.get("exercises", []):
-									with ui.card().classes("w-full mb-3 border border-gray-100 hover:border-gray-300 transition-colors"):
-										with ui.row().classes("items-center gap-3 mb-2"):
-											with ui.element("div").classes(f"bg-gradient-to-br {grad} text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm"):
-												ui.label(str(ex["id"]))
-											ui.label(ex["name"]).classes("text-base font-bold text-gray-800 flex-1")
+											def do_log(w=w, d=dlg):
+												log_premade_workout(w)
+												ui.notify(f"✅ {w['name']} logged!", type="positive")
+												d.close()
 
-										with ui.row().classes("flex-wrap gap-2 mb-2"):
-											# Sets badge
-											with ui.element("div").classes("bg-gray-100 rounded px-2 py-1"):
-												ui.label(f"📦 {ex['sets']} set{'s' if ex['sets'] != 1 else ''}").classes("text-xs text-gray-700")
+											ui.button("Log Workout", on_click=do_log, icon="check_circle").props("color=green").classes("shrink-0")
 
-											# Reps or distance badge
-											if "reps_min" in ex:
-												rep_str = f"{ex['reps_min']}" if ex["reps_min"] == ex.get("reps_max") else f"{ex['reps_min']}–{ex.get('reps_max', ex['reps_min'])}"
-												with ui.element("div").classes("bg-red-100 rounded px-2 py-1"):
-													ui.label(f"🔁 {rep_str} reps").classes("text-xs text-red-700")
-											elif "distance_min_meters" in ex:
-												dist_str = f"{ex['distance_min_meters']}–{ex.get('distance_max_meters', ex['distance_min_meters'])}m"
-												with ui.element("div").classes("bg-green-100 rounded px-2 py-1"):
-													ui.label(f"📏 {dist_str}").classes("text-xs text-green-700")
+									# Coach's Notes
+									if w.get("notes"):
+										with ui.card().classes("w-full bg-amber-50 border border-amber-200 mb-4"):
+											with ui.row().classes("items-center gap-2 mb-2"):
+												ui.label("📋").classes("text-xl")
+												ui.label("Coach's Notes").classes("text-base font-bold text-amber-800")
+											for note in w["notes"]:
+												with ui.row().classes("items-start gap-2 mb-1"):
+													ui.label("•").classes("text-amber-600 font-bold mt-0.5")
+													ui.label(note).classes("text-sm text-amber-900 flex-1")
 
-											# Equipment badge
-											with ui.element("div").classes("bg-blue-100 rounded px-2 py-1"):
-												ui.label(f"🛠 {ex['equipment']}").classes("text-xs text-blue-700")
+									# Exercises
+									ui.label("Exercises").classes("text-lg font-bold text-gray-800 mb-3")
 
-										if ex.get("description"):
-											ui.label(ex["description"]).classes("text-sm text-gray-600 mb-1")
+									for ex in w.get("exercises", []):
+										with ui.card().classes("w-full mb-3 border border-gray-100 hover:border-gray-300 transition-colors"):
+											with ui.row().classes("items-center gap-3 mb-2"):
+												with ui.element("div").classes(f"bg-gradient-to-br {grad} text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm"):
+													ui.label(str(ex["id"]))
+												ui.label(ex["name"]).classes("text-base font-bold text-gray-800 flex-1")
 
-										if ex.get("cue"):
-											with ui.element("div").classes("bg-yellow-50 border-l-4 border-yellow-400 pl-3 py-1 mt-1"):
-												ui.label(f"💡 {ex['cue']}").classes("text-xs italic text-yellow-800")
+											with ui.row().classes("flex-wrap gap-2 mb-2"):
+												with ui.element("div").classes("bg-gray-100 rounded px-2 py-1"):
+													ui.label(f"📦 {ex['sets']} set{'s' if ex['sets'] != 1 else ''}").classes("text-xs text-gray-700")
 
-								ui.button("Close", on_click=dlg.close, icon="close").props("flat color=gray").classes("w-full mt-2")
+												if "reps_min" in ex:
+													rep_str = f"{ex['reps_min']}" if ex["reps_min"] == ex.get("reps_max") else f"{ex['reps_min']}–{ex.get('reps_max', ex['reps_min'])}"
+													with ui.element("div").classes("bg-red-100 rounded px-2 py-1"):
+														ui.label(f"🔁 {rep_str} reps").classes("text-xs text-red-700")
+												elif "distance_min_meters" in ex:
+													dist_str = f"{ex['distance_min_meters']}–{ex.get('distance_max_meters', ex['distance_min_meters'])}m"
+													with ui.element("div").classes("bg-green-100 rounded px-2 py-1"):
+														ui.label(f"📏 {dist_str}").classes("text-xs text-green-700")
 
-							dlg.open()
+												with ui.element("div").classes("bg-blue-100 rounded px-2 py-1"):
+													ui.label(f"🛠 {ex['equipment']}").classes("text-xs text-blue-700")
 
-						ui.button("View Workout →", on_click=open_workout_dialog).props("flat color=red").classes("w-full mt-2")
+											if ex.get("description"):
+												ui.label(ex["description"]).classes("text-sm text-gray-600 mb-1")
+
+											if ex.get("cue"):
+												with ui.element("div").classes("bg-yellow-50 border-l-4 border-yellow-400 pl-3 py-1 mt-1"):
+													ui.label(f"💡 {ex['cue']}").classes("text-xs italic text-yellow-800")
+
+									ui.button("Close", on_click=dlg.close, icon="close").props("flat color=gray").classes("w-full mt-2")
+
+								dlg.open()
+
+							ui.button("View Workout →", on_click=open_workout_dialog).props("flat color=red").classes("flex-1")
+
+							def quick_log(w=workout):
+								log_premade_workout(w)
+								ui.notify(f"✅ {w['name']} logged!", type="positive")
+
+							ui.button(icon="check_circle", on_click=quick_log).props("flat color=green").tooltip("Quick log this workout")
 
 
 @ui.page("/")
