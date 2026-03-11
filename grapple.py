@@ -338,17 +338,17 @@ def record_string(wins: int, losses: int, draws: int) -> str:
     return base if draws == 0 else f"{base}-{draws}"
 
 
-# ---------------------------------------------------------------------------
-# Page sections
-# ---------------------------------------------------------------------------
-
-def create_header():
+def create_header(on_refresh=None):
     with ui.header().classes("items-center justify-between bg-red-600 !important text-white"):
         ui.label("Grapple Get Ready 🤼‍♂️").classes("text-2xl font-bold")
-        ui.button("Settings", icon="settings",
-                  on_click=lambda: ui.notify("Settings coming soon!")).props("flat")
+        with ui.row().classes("gap-2"):
+            if on_refresh:
+                ui.button("Refresh", icon="refresh", on_click=on_refresh).props("flat").tooltip("Reload data from disk")
+            ui.button("Settings", icon="settings",
+                      on_click=lambda: ui.notify("Settings coming soon!")).props("flat")
 
 
+@ui.refreshable
 def create_dashboard():
     with ui.row().classes("w-full gap-4 p-4"):
         _dashboard_left_column()
@@ -457,6 +457,8 @@ def create_workout_log():
                     "notes": notes.value,
                     "timestamp": datetime.now().isoformat(),
                 })
+                create_dashboard.refresh()
+                create_workout_history.refresh()
                 ui.notify("Workout logged successfully! 💪", type="positive")
                 notes.value = ""
 
@@ -688,6 +690,7 @@ def _delete_competition(comp_idx, refresh_fn):
     refresh_fn.refresh()
 
 
+@ui.refreshable
 def create_workout_history():
     with ui.column().classes("w-full gap-4 p-4"):
         ui.label("Training History").classes("text-2xl font-bold text-gray-800")
@@ -846,12 +849,20 @@ def _exercise_card(ex, gradient):
 
 def _quick_log_premade(workout):
     log_premade_workout(workout)
+    create_dashboard.refresh()
+    create_workout_history.refresh()
     ui.notify(f"✅ {workout['name']} logged!", type="positive")
 
 
 @ui.page("/")
 def main_page():
-    create_header()
+    def reload_all():
+        tracker.load_data()
+        create_dashboard.refresh()
+        create_workout_history.refresh()
+        ui.notify("Data refreshed! 🔄", type="positive")
+
+    create_header(on_refresh=reload_all)
 
     with ui.tabs().classes("w-full") as tabs:
         tab_dashboard = ui.tab("Dashboard", icon="dashboard")
