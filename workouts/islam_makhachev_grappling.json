@@ -1,0 +1,76 @@
+{
+  "workout": {
+    "name": "Islam Makhachev – Sambo-Based Grappling Control",
+    "type": "BJJ/Grappling",
+    "inspired_by": "Islam Makhachev",
+    "duration_minutes": 25,
+    "notes": [
+      "Islam's grappling is built on pressure — every position should feel suffocating to the opponent",
+      "The focus is chain wrestling: never settle into a single position, always be advancing",
+      "Submissions are secondary to positional control; get the dominant position first",
+      "All drills should be done with a resisting partner at roughly 60–70% effort",
+      "Rest 60 seconds between sets — this is a conditioning drill as much as a technique drill"
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Level Change to Double Leg Takedown",
+        "sets": 4,
+        "reps_min": 3,
+        "reps_max": 5,
+        "equipment": "Partner and Mat",
+        "description": "From a collar tie or standing grapple, drop your level sharply with a penetration step, drive through both of the opponent's legs and finish to the mat. Islam's double leg is characterised by a very low level change and a drive-through finish rather than a lift.",
+        "cue": "Change levels before they feel it — the step is the shot"
+      },
+      {
+        "id": 2,
+        "name": "Body Lock Takedown",
+        "sets": 4,
+        "reps_min": 3,
+        "reps_max": 4,
+        "equipment": "Partner and Mat",
+        "description": "From behind or the clinch, secure a body lock (both arms wrapped around the opponent's waist, hands clasped). Drive forward and trip or lift to bring them to the mat. Once on the mat, maintain the body lock and transition to back control.",
+        "cue": "Lock tight, suck them in — the trip is just a redirect of your forward drive"
+      },
+      {
+        "id": 3,
+        "name": "Arm Drag to Back Take",
+        "sets": 4,
+        "reps_min": 3,
+        "reps_max": 5,
+        "equipment": "Partner and Mat",
+        "description": "From a pummelling position, catch the opponent's wrist with both hands and sharply pull their arm across your body, stepping behind them simultaneously. Secure the back with seatbelt control (one arm over the shoulder, one under the armpit, hands clasped).",
+        "cue": "Drag the arm past your hip — if you drag to your chest it stalls"
+      },
+      {
+        "id": 4,
+        "name": "Top Half Guard Pass to Side Control",
+        "sets": 3,
+        "reps_min": 4,
+        "reps_max": 5,
+        "equipment": "Partner and Mat",
+        "description": "From top half guard, use a knee slice or hip switch to free the trapped leg and pass to side control. Islam consistently clears half guard with a combination of shoulder pressure and hip switching. Partner should resist with realistic half guard frames.",
+        "cue": "Keep your weight on their chest — if they can breathe easily, you're too light"
+      },
+      {
+      	"id": 5,
+      	"name": "Darce Choke Finish Drill",
+      	"sets": 3,
+      	"reps_min": 4,
+      	"reps_max": 6,
+      	"equipment": "Partner and Mat",
+      	"description": "From top half guard or sprawl position, thread your lead arm under the opponent's armpit and across their neck, then clasp your hands in a figure-four with your other arm (your choking arm's bicep traps the neck). Drop your weight forward and drive your shoulder into them to finish. Islam sets this up constantly off failed takedown attempts by the opponent.",
+      	"cue": "Thread deep before you clasp — a shallow darce just moves their head"      },
+      {
+        "id": 6,
+        "name": "Scramble to Dominant Position",
+        "sets": 4,
+        "reps_min": 3,
+        "reps_max": 4,
+        "equipment": "Partner and Mat",
+        "description": "Both partners start on all fours facing each other. On signal, both scramble to achieve a dominant position (back, mount, or leg entanglement). Go at 70% intensity. After each scramble, reset and go again. This is Islam's specialty — he rarely loses scrambles.",
+        "cue": "Stay low, stay connected — whoever lets go of contact first loses the scramble"
+      }
+    ]
+  }
+}

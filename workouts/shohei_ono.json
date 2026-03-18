@@ -1,0 +1,77 @@
+{
+  "workout": {
+    "name": "Shohei Ono – Grip Fighting & Transition Drill",
+    "type": "Judo Technique Practice",
+    "inspired_by": "Shohei Ono",
+    "duration_minutes": 20,
+    "notes": [
+      "Every technique begins with a grip fight — never start from a passive grip",
+      "Ono's style is defined by relentless forward pressure; step in on every rep",
+      "Focus on the grip-to-entry transition being seamless and explosive",
+      "Uke should offer light resistance during grip fighting, then receive cleanly",
+      "Drill both sides; Ono is dangerous from either stance"
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Kenka Yotsu Grip Battle",
+        "sets": 3,
+        "reps_min": 4,
+        "reps_max": 6,
+        "equipment": "Partner and Gi",
+        "description": "Opposite-stance grip fighting drill. Both partners work from a kenka yotsu (opposite) stance and fight for sleeve and lapel control. Neither throws — the goal is to break the opponent's grip and re-establish your own dominant grip repeatedly.",
+        "cue": "Elbows in, snatch the sleeve first — the lapel grip is the finisher"
+      },
+      {
+        "id": 2,
+        "name": "Seoi Nage (Drop Knee Entry)",
+        "sets": 3,
+        "reps_min": 3,
+        "reps_max": 5,
+        "equipment": "Partner and Gi",
+        "description": "One-arm shoulder throw with drop knee. From an active grip, explode into a drop entry — one knee hits the mat as you load uke onto your back and rotate them over your shoulder.",
+        "cue": "Drop fast, tight elbow — if your elbow is out, the throw dies"
+      },
+      {
+        "id": 3,
+        "name": "Kouchi Gari to Seoi Nage Combination",
+        "sets": 3,
+        "reps_min": 3,
+        "reps_max": 4,
+        "equipment": "Partner and Gi",
+        "description": "Small inner reap feint into shoulder throw. Initiate kouchi gari to force uke to step back and shift weight; the moment their foot lifts, pivot immediately into drop seoi nage.",
+        "cue": "Reap to make them move, throw to make them fall — two beats, one motion"
+      },
+      {
+        "id": 4,
+        "name": "Ouchi Gari to Harai Goshi Combination",
+        "sets": 3,
+        "reps_min": 3,
+        "reps_max": 4,
+        "equipment": "Partner and Gi",
+        "description": "Large inner reap into sweeping hip throw. Drive ouchi gari to push uke's hips back; as they resist and push forward, use their momentum to pivot into harai goshi and sweep the lead leg.",
+        "cue": "Their resistance is your launch — feel them push back and go"
+      },
+      {
+        "id": 5,
+        "name": "Uchi Mata",
+        "sets": 3,
+        "reps_min": 3,
+        "reps_max": 5,
+        "equipment": "Partner and Gi",
+        "description": "Inner thigh throw. From dominant grip, step deep and sweep upward through the opponent's inner thigh while rotating your upper body sharply. Ono's version is characterised by a high, hooking lift of the reaping leg.",
+        "cue": "Step through the centre, lift the thigh — not the calf"
+      },
+      {
+        "id": 6,
+        "name": "Newaza Transition (Turnover to Kesa Gatame)",
+        "sets": 3,
+        "reps_min": 3,
+        "reps_max": 4,
+        "equipment": "Partner and Gi",
+        "description": "Ground transition drill. After each throw, tori immediately follows uke to the ground and transitions into kesa gatame (scarf hold). Uke resists lightly. Focus on not losing momentum from standing to ground.",
+        "cue": "Follow them down — never let them breathe between the throw and the pin"
+      }
+    ]
+  }
+}

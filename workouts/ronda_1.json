@@ -1,0 +1,67 @@
+{
+  "workout": {
+    "name": "Ronda Rousey – Static to Grip and Throw",
+    "type": "Judo Technique Practice",
+    "inspired_by": "Ronda Rousey",
+    "duration_minutes": 15,
+    "notes": [
+      "Both partners start static with hands up — the moment you grip, throw immediately with full commitment",
+      "Uke (receiver) must tuck chin and breakfall safely on every throw",
+      "Start slow to build muscle memory, then increase speed progressively",
+      "Drill both left and right sides for each technique",
+      "Goal: grip → throw as one fluid motion with zero hesitation"
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Osoto Gari",
+        "sets": 1,
+        "reps_min": 2,
+        "reps_max": 3,
+        "equipment": "Partner and Gi (or No-Gi with collar-sleeve grip)",
+        "description": "Large outer reap. From static, grip the sleeve and lapel, drive forward, and reap the opponent's far leg backward while breaking their balance to the rear corner.",
+        "cue": "Rushing bearhug — get the grip and reap in one explosive motion"
+      },
+      {
+        "id": 2,
+        "name": "Harai Goshi",
+        "sets": 1,
+        "reps_min": 2,
+        "reps_max": 3,
+        "equipment": "Partner and Gi (or No-Gi with collar-sleeve grip)",
+        "description": "Sweeping hip throw. From static, grip and step in, sweeping the opponent's lead leg with your hip and thigh while pulling them forward and over.",
+        "cue": "Grip the sleeve, throw your arm up, sweep — all in one motion"
+      },
+      {
+        "id": 3,
+        "name": "O-Goshi",
+        "sets": 1,
+        "reps_min": 2,
+        "reps_max": 3,
+        "equipment": "Partner and Gi (or No-Gi with collar-sleeve grip)",
+        "description": "Large hip throw. Grip, wrap your arm around the opponent's waist with a high grip, step in and pivot, loading them onto your hip and throwing.",
+        "cue": "Draw the 'O', ballerina step, grip up your opponent, send them down"
+      },
+      {
+        "id": 4,
+        "name": "Ouchi Gari",
+        "sets": 1,
+        "reps_min": 2,
+        "reps_max": 3,
+        "equipment": "Partner and Gi (or No-Gi with collar-sleeve grip)",
+        "description": "Large inner reap. From static, grip and step between the opponent's legs, reaping the inside of their rear leg while driving their upper body backward.",
+        "cue": "Snatch the gi, step inside, reap with commitment"
+      },
+      {
+        "id": 5,
+        "name": "Ko-Soto Gari",
+        "sets": 1,
+        "reps_min": 2,
+        "reps_max": 3,
+        "equipment": "Partner and Gi (or No-Gi with collar-sleeve grip)",
+        "description": "Small outer reap. From static, grip and hook the outside of the opponent's near heel with your foot while pushing their upper body backward to break balance and reap.",
+        "cue": "Get that grip and sweep their foot — fast and committed"
+      }
+    ]
+  }
+}

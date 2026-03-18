@@ -1,0 +1,77 @@
+{
+  "workout": {
+    "name": "Bas Rutten – MMA Cardio Conditioning",
+    "type": "Cardio",
+    "inspired_by": "Bas Rutten",
+    "duration_minutes": 30,
+    "notes": [
+      "Use Bas Rutten's MMA audio rounds if available — otherwise set a 3-minute timer per round",
+      "Every strike combination ends with a level change, clinch entry, or sprawl",
+      "Visualise a specific opponent; Bas always trained with full mental presence",
+      "Keep your hands up and chin down between every combination — no rest posture",
+      "Intensity should be at 80–90% — you are building fight-pace cardio, not just sweating"
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Core Stretch",
+        "sets": 1,
+        "reps_min": 5,
+        "reps_max": 5,
+        "equipment": "Yoga Ball",
+        "description": "Position the yoga ball under your back, where under where the core would be, and stretch straight out",
+        "cue": "Think about almost doing a bridge on the ball"
+      },
+      {
+        "id": 2,
+        "name": "Shadow Boxing – Jab, Cross, Hook, Low Kick",
+        "sets": 3,
+        "reps_min": 8,
+        "reps_max": 12,
+        "equipment": "Open Space",
+        "description": "Four-piece combination shadowboxing. Jab to set range, cross to the body or head, rear hook, finish with a low kick to the lead thigh. Reset footwork between each combination. Move constantly — no standing still.",
+        "cue": "Jab finds them, cross hurts them, hook turns them, kick takes the leg"
+      },
+      {
+        "id": 3,
+        "name": "Sprawl and Brawl Intervals",
+        "sets": 5,
+        "reps_min": 5,
+        "reps_max": 8,
+        "equipment": "Open Space or Mat",
+        "description": "From standing, drop into a full sprawl (hips to the floor, legs back), immediately post up and return to fighting stance, then throw a two-punch combination. Each rep is: sprawl → pop up → combo. No rest between reps within a set.",
+        "cue": "Hips DOWN, not knees — sprawl flat and explode back up fast"
+      },
+      {
+        "id": 4,
+        "name": "Heavy Bag – Liver Shot Combos",
+        "sets": 4,
+        "reps_min": 6,
+        "reps_max": 10,
+        "equipment": "Heavy Bag and Gloves",
+        "description": "Body attack combinations on the heavy bag. Lead jab to draw guard high, rear straight to the body (liver side), left hook to the body, finish with a right uppercut. Bas was famous for his body attack — every combo should target the midsection at least once.",
+        "cue": "Make them drop their hands — everything goes to the body first"
+      },
+      {
+        "id": 5,
+        "name": "Clinch Knees on Bag",
+        "sets": 3,
+        "reps_min": 10,
+        "reps_max": 15,
+        "equipment": "Heavy Bag and Gloves",
+        "description": "Grab the heavy bag in a Muay Thai clinch (both hands behind the head or neck), pull the bag into alternating knees. Drive from the hip, not just the leg. Alternate lead and rear knees rhythmically. Keep posture upright and elbows in.",
+        "cue": "Pull the head down, drive the hip through — knees are whole-body weapons"
+      },
+      {
+        "id": 6,
+        "name": "3-Minute Freestyle Shadow Round",
+        "sets": 3,
+        "reps_min": 1,
+        "reps_max": 1,
+        "equipment": "Open Space",
+        "description": "Full 3-minute shadow boxing round with no structure. Combine punches, kicks, knees, level changes, and sprawls freely. Think of it as a real fight against an imaginary opponent. Keep movement constant. Rest 1 minute between rounds.",
+        "cue": "No patterns — react, adapt, move like it is real"
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-*.json
+combat_sports_data.json
 
 # Python-generated files
 __pycache__/

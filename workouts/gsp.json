@@ -1,0 +1,59 @@
+{
+  "workout": {
+    "name": "GSP-Inspired Gymnastics Workout",
+    "type": "Strength and Conditioning",
+    "inspired_by": "Georges St-Pierre",
+    "duration_minutes": 45,
+    "notes": [],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Muscle Ups",
+        "sets": 5,
+        "reps_min": 1,
+        "reps_max": 5,
+        "equipment": "Rings or Pull-Up Bar"
+      },
+      {
+        "id": 2,
+        "name": "Snatch Pull",
+        "sets": 5,
+        "reps_min": 5,
+        "reps_max": 10,
+        "equipment": "Barbell"
+      },
+      {
+        "id": 3,
+        "name": "Assisted Handstand Push Ups",
+        "sets": 5,
+        "reps_min": 5,
+        "reps_max": 5,
+        "equipment": "Wall or Bosu Ball"
+      },
+      {
+        "id": 4,
+        "name": "Assisted 1-Arm Chin Ups",
+        "sets": 5,
+        "reps_min": 3,
+        "reps_max": 5,
+        "equipment": "Pull-Up Bar or Rings"
+      },
+      {
+        "id": 5,
+        "name": "Sprints",
+        "sets": 5,
+        "distance_min_meters": 25,
+        "distance_max_meters": 50,
+        "equipment": "Track or Open Space"
+      },
+      {
+        "id": 6,
+        "name": "Hamstring Bodycurls",
+        "sets": 5,
+        "reps_min": 5,
+        "reps_max": 10,
+        "equipment": "Bosu Ball"
+      }
+    ]
+  }
+}

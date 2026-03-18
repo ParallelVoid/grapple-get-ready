@@ -1,0 +1,77 @@
+{
+  "workout": {
+    "name": "Craig Jones – Octopus Guard & Back Take System",
+    "type": "BJJ/Grappling",
+    "inspired_by": "Craig Jones",
+    "duration_minutes": 25,
+    "notes": [
+      "The octopus guard is an offensive bottom position — never be passive, always be hunting the back",
+      "Craig's system chains positions together; if one entry is denied, flow immediately to the next",
+      "Partner should pass actively at 60–70% — the guard only works against a moving passer",
+      "Tap early and reset fast — the goal is volume of reps, not grinding submissions",
+      "Both sides for every drill; Craig attacks from either hip"
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "name": "Octopus Guard Entry from Seated Guard",
+        "sets": 4,
+        "reps_min": 4,
+        "reps_max": 6,
+        "equipment": "Partner and Mat",
+        "description": "From seated guard, as the partner steps to pass, hook one arm behind their lead knee (underhook the leg from the outside) and simultaneously reach your same-side arm around their far hip or thigh. This creates the octopus — you are wrapping two limbs of theirs with two of yours. Focus only on getting the entry clean.",
+        "cue": "Hook the knee before they post the foot — timing is everything on the entry"
+      },
+      {
+        "id": 2,
+        "name": "Octopus to Back Take (Crab Ride)",
+        "sets": 4,
+        "reps_min": 3,
+        "reps_max": 5,
+        "equipment": "Partner and Mat",
+        "description": "From the octopus position, use the knee hook and hip control to rotate underneath the opponent, inserting a crab ride (one hook behind their knee, your body perpendicular to theirs). From crab ride, climb up to take the back with seatbelt control. Partner postures and tries to step out.",
+        "cue": "Stay glued to their hip — the second there's space, you've lost the crab ride"
+      },
+      {
+        "id": 3,
+        "name": "Leg Drag to Octopus",
+        "sets": 3,
+        "reps_min": 4,
+        "reps_max": 5,
+        "equipment": "Partner and Mat",
+        "description": "From De La Riva or open guard, initiate a leg drag (pull their lead leg across your body). As they react and step around to recover, transition directly into the octopus hook on their newly posted leg. This is a common entry when the back take is defended.",
+        "cue": "Drag to move their leg, octopus to catch them mid-step"
+      },
+      {
+        "id": 4,
+        "name": "Crab Ride to Truck Position",
+        "sets": 3,
+        "reps_min": 3,
+        "reps_max": 4,
+        "equipment": "Partner and Mat",
+        "description": "From crab ride, instead of climbing to the back, rotate further to enter the truck (both legs controlling one of the opponent's legs, facing the same direction as them). From the truck, work a calf slicer or begin hunting for the back roll. Partner tries to stand and posture.",
+        "cue": "If they block the back, go deeper into the truck — don't retreat to guard"
+      },
+      {
+        "id": 5,
+        "name": "Inside Heel Hook from Octopus Fail",
+        "sets": 3,
+        "reps_min": 3,
+        "reps_max": 4,
+        "equipment": "Partner and Mat",
+        "description": "When the octopus back take is stuffed and you end up in an entanglement, immediately look to control the inside position on their leg. Secure an inside sankaku (leg triangle) around their lead leg, rotate to face their feet, and finish with a heel hook. Drill entry and control only — tap on heel hook contact, do not crank.",
+        "cue": "Inside position first, always — outside heel hooks are a last resort in this system"
+      },
+      {
+        "id": 6,
+        "name": "Back Control to Armbar / RNC Choice Drill",
+        "sets": 3,
+        "reps_min": 4,
+        "reps_max": 5,
+        "equipment": "Partner and Mat",
+        "description": "From back control with seatbelt, partner defends the RNC by tucking their chin and grabbing your choking arm. When they defend, immediately transition to a back armbar — swing your top leg over their head and extend their defending arm. Partner taps on contact. Drill the decision: choke if the chin lifts, armbar if they grab the arm.",
+        "cue": "Let their defence tell you the submission — don't force one, read what they give"
+      }
+    ]
+  }
+}
