@@ -83,6 +83,8 @@ RESULT_CARD_COLORS = {
 	"Upcoming": "bg-blue-100 border-blue-500",
 }
 
+connected_clients = set()
+
 
 class CombatSportsTracker:
 	def __init__(self):
@@ -857,9 +859,14 @@ def _quick_log_premade(workout):
 
 @ui.page("/")
 def main_page():
+	client_id = ui.context.client.id
+	connected_clients.add(client_id)
+
 	async def handle_disconnect():
-		await asyncio.sleep(2)  # small grace period in case of accidental refresh
-		app.shutdown()
+		connected_clients.discard(client_id)
+		await asyncio.sleep(60)
+		if not connected_clients:
+			app.shutdown()
 
 	app.on_disconnect(handle_disconnect)
 
@@ -890,6 +897,8 @@ def main_page():
 		with ui.tab_panel(tab_premade):
 			create_premade_workouts()
 
+def open_program():
+	ui.run(title="Combat Sports Tracker", host="0.0.0.0", port=8080, dark=True, reload=False)
 
 if __name__ in {"__main__", "__mp_main__"}:
-	ui.run(title="Combat Sports Tracker", host="0.0.0.0", port=8080, dark=True, reload=True)
+	open_program()

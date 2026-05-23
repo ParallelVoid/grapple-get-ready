@@ -1,6 +1,4 @@
-def main():
-	print("Hello from grapple-get-ready!")
-
+from grapple import open_program
 
 if __name__ == "__main__":
-	main()
+	open_program()

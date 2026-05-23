@@ -1,6 +1,8 @@
 # 🤼‍♂️ Grapple Get Ready
 
 > **Your all-in-one combat sports training companion** — track practices, monitor your weight cut, log competition results, and follow athlete-inspired workouts. Built for grapplers, by grapplers.
+![Main Screen](readme_images/main_screen.png)
+![Workouts Screen](readme_images/workouts.png)
 
 ---
 
@@ -61,7 +63,7 @@ uv add nicegui plotly
 ### Run the app
 
 ```bash
-uv run grapple.py
+uv run main.py
 ```
 
 Then open [http://localhost:8080](http://localhost:8080) in your browser.
@@ -109,10 +111,19 @@ All your workouts and competition data are saved locally to `combat_sports_data.
 
 ---
 
-## Roadmap Ideas
+## Contributing
 
-- [ ] Periodization planner (peak for comp date)
-- [ ] Mobile-friendly layout improvements
+GGR is open to contributions! Here are features that would make great additions:
+
+- **Periodization planner** — plan training blocks that peak for a target competition date
+- **Mobile-friendly layout** — better responsiveness for logging workouts from your phone
+- **More premade workouts** — add JSON files for more sports or athlete-inspired sessions
+- **Weight cut calculator** — estimate daily deficit needed to hit a target weight by comp day
+- **Training analytics** — trends over time, personal records, intensity distribution
+- **Export / backup tool** — one-click export of `combat_sports_data.json` with a timestamp
+
+To contribute, fork the repo, make your changes, and open a pull request.
+
 
 ---
 
